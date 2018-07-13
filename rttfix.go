@@ -1,11 +1,12 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"os"
 	"strconv"
+
+	"github.com/json-iterator/go"
 )
 
 type service struct {
@@ -19,7 +20,7 @@ func main() {
 
 	parsed := make([]service, 1000)
 
-	err := json.Unmarshal(arg, &parsed)
+	err := jsoniter.Unmarshal(arg, &parsed)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, fmt.Sprintf("err: %s", err))
 		os.Exit(1)
@@ -58,7 +59,7 @@ func main() {
 		}
 	}
 
-	result, err := json.Marshal(parsed)
+	result, err := jsoniter.Marshal(parsed)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, fmt.Sprintf("err: %s", err))
 		os.Exit(1)
