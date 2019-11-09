@@ -1,2 +1,6 @@
+0.1.1 2019-11-09
+  - Remove vendoring.
+  - Use go modules.
+
 0.1 2018-01-03
   - First release.
